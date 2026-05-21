@@ -1,9 +1,12 @@
 @use './variables' as *;
+@use './mixins' as *;
 
 .cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--content-gap);
+
+  @include hide-incomplete-row(2);
 }
 
 .card {
@@ -32,12 +35,16 @@
 @media (min-width: $tablet-min) {
   .cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    @include hide-incomplete-row(3);
   }
 }
 
 @media (min-width: $laptop-min) {
   .cards {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @include hide-incomplete-row(4);
   }
 
   .card {
@@ -48,5 +55,7 @@
 @media (min-width: $desktop-min) {
   .cards {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    @include hide-incomplete-row(5);
   }
 }

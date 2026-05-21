@@ -1,0 +1,6 @@
+@mixin hide-incomplete-row($columns) {
+  > :nth-child(#{$columns}n + 1):nth-last-child(-n + #{$columns - 1}),
+  > :nth-child(#{$columns}n + 1):nth-last-child(-n + #{$columns - 1}) ~ * {
+    display: none;
+  }
+}
