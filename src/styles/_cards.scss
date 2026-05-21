@@ -1,0 +1,52 @@
+@use './variables' as *;
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--content-gap);
+}
+
+.card {
+  min-width: 0;
+  min-height: 115px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgb(128 104 159 / 20%);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.card:hover {
+  background: rgb(128 104 159 / 28%);
+  transform: translateY(-3px);
+}
+
+.card__text {
+  margin: 0;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+@media (min-width: $tablet-min) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $laptop-min) {
+  .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .card {
+    min-height: 150px;
+  }
+}
+
+@media (min-width: $desktop-min) {
+  .cards {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
