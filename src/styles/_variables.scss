@@ -1,0 +1,29 @@
+$mobile-max: 639px;
+$tablet-min: 640px;
+$tablet-max: 1023px;
+$laptop-min: 1024px;
+$desktop-min: 1440px;
+
+:root {
+  --page-bg: #e5e5e5;
+  --header-height: 48px;
+  --sidebar-width: 240px;
+  --content-padding: 16px;
+  --content-gap: 16px;
+}
+
+@media (min-width: $tablet-min) {
+  :root {
+    --header-height: 56px;
+    --content-padding: 20px;
+    --content-gap: 20px;
+  }
+}
+
+@media (min-width: $laptop-min) {
+  :root {
+    --sidebar-width: 240px;
+    --content-padding: 24px;
+    --content-gap: 24px;
+  }
+}
