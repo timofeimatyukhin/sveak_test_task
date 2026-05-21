@@ -7,7 +7,116 @@
     <title>SVEAK Test Task</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="page">
+      <input
+        class="nav-toggle"
+        type="checkbox"
+        id="nav-toggle"
+        aria-hidden="true"
+      >
+    
+      <header class="header">
+        <label class="burger" for="nav-toggle" aria-label="Открыть меню">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </label>
+    
+        <div class="header__actions" aria-label="Действия">
+          <button class="header__action header__action--play" type="button" aria-label="Запустить"></button>
+          <button class="header__action header__action--status" type="button" aria-label="Статус"></button>
+          <button class="header__action header__action--profile" type="button" aria-label="Профиль"></button>
+        </div>
+      </header>
+    
+      <aside class="sidebar" aria-label="Основное меню">
+        <label class="sidebar__close" for="nav-toggle" aria-label="Закрыть меню"></label>
+    
+        <nav class="menu" aria-label="Навигация">
+          <a class="menu__item menu__item--active" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Главный раздел</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Новости</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Карточки</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Аналитика</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Очень длинный пункт меню для проверки переполнения текста</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Настройки</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Профиль</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Документы</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Отчеты</span>
+          </a>
+    
+          <a class="menu__item" href="#">
+            <span class="menu__icon" aria-hidden="true"></span>
+            <span class="menu__text">Архив</span>
+          </a>
+        </nav>
+    
+        <section class="demo-controls" aria-labelledby="demo-controls-title">
+          <h2 class="demo-controls__title" id="demo-controls-title">
+            Количество карточек
+          </h2>
+    
+          <div class="demo-controls__list">
+            <button class="demo-controls__button" type="button" data-cards-count="15">15</button>
+            <button class="demo-controls__button" type="button" data-cards-count="16">16</button>
+            <button class="demo-controls__button" type="button" data-cards-count="25">25</button>
+            <button class="demo-controls__button" type="button" data-cards-count="36">36</button>
+            <button class="demo-controls__button" type="button" data-cards-count="41">41</button>
+            <button class="demo-controls__button is-active" type="button" data-cards-count="64">64</button>
+          </div>
+        </section>
+      </aside>
+    
+      <main class="main">
+        <section class="cards" aria-label="Карточки"></section>
+      </main>
+    
+      <footer class="footer">
+        <h2 class="footer__title">What is Lorem Ipsum?</h2>
+        <p class="footer__text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but
+          also the leap into electronic typesetting, remaining essentially
+          unchanged.
+        </p>
+      </footer>
+    </div>
+    
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
