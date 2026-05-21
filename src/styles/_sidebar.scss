@@ -1,6 +1,8 @@
 @use './variables' as *;
 
 .burger {
+  position: relative;
+  z-index: 1;
   width: 36px;
   height: 36px;
   display: inline-flex;
@@ -24,12 +26,28 @@
   background: #4f97b3;
 }
 
+.nav-toggle:checked ~ .header .burger__line {
+  background: var(--sidebar-text);
+}
+
+.nav-toggle:checked ~ .header .burger__line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle:checked ~ .header .burger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle:checked ~ .header .burger__line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 20;
-  width: min(78vw, var(--sidebar-width));
-  padding: 20px 16px;
+  width: 100%;
+  padding: calc(var(--header-height) + 12px) 16px 20px;
   background: var(--sidebar-bg);
   overflow-y: auto;
   transform: translateX(-100%);
@@ -41,32 +59,7 @@
 }
 
 .sidebar__close {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  display: block;
-  margin-bottom: 16px;
-  cursor: pointer;
-}
-
-.sidebar__close::before,
-.sidebar__close::after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  left: 6px;
-  width: 20px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--sidebar-text);
-}
-
-.sidebar__close::before {
-  transform: rotate(45deg);
-}
-
-.sidebar__close::after {
-  transform: rotate(-45deg);
+  display: none;
 }
 
 .menu {
@@ -156,16 +149,23 @@
   background: var(--sidebar-accent);
 }
 
+@media (min-width: $tablet-min) and (max-width: $tablet-max) {
+  .sidebar {
+    width: var(--sidebar-width);
+  }
+}
+
 @media (min-width: $laptop-min) {
+  .burger {
+    display: none;
+  }
+
   .sidebar {
     position: sticky;
     top: 0;
     width: auto;
     height: 100dvh;
+    padding: 20px 16px;
     transform: none;
-  }
-
-  .sidebar__close {
-    display: none;
   }
 }

@@ -6,9 +6,10 @@ body {
 
 .page {
   position: relative;
-  min-height: 100dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .nav-toggle {
@@ -23,7 +24,7 @@ body {
 .header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 30;
   min-height: var(--header-height);
   flex: 0 0 auto;
   display: flex;
@@ -31,12 +32,14 @@ body {
   justify-content: space-between;
   padding: 0 var(--content-padding);
   background: var(--header-bg);
+  transition: background-color 0.25s ease;
 }
 
 .header__actions {
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: opacity 0.2s ease;
 }
 
 .header__action {
@@ -89,25 +92,58 @@ body {
 .main {
   flex: 1;
   min-width: 0;
+  min-height: 0;
   padding: var(--content-padding);
+  overflow-y: auto;
 }
 
 .footer {
   flex: 0 0 auto;
 }
 
+@media (max-width: $tablet-max) {
+  .nav-toggle:checked ~ .main {
+    overflow-y: hidden;
+  }
+}
+
+@media (max-width: $mobile-max) {
+  .nav-toggle:checked ~ .header {
+    background: transparent;
+  }
+
+  .nav-toggle:checked ~ .header .header__actions {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: $tablet-min) and (max-width: $tablet-max) {
+  .nav-toggle:checked ~ .header {
+    background: linear-gradient(
+      90deg,
+      transparent 0 var(--sidebar-width),
+      var(--header-bg) var(--sidebar-width) 100%
+    );
+  }
+}
+
 @media (min-width: $laptop-min) {
   .page {
     display: grid;
     grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-    grid-template-rows: 1fr auto;
+    grid-template-rows: var(--header-height) minmax(0, 1fr) auto;
     grid-template-areas:
+      'sidebar header'
       'sidebar main'
       'sidebar footer';
   }
 
   .header {
-    display: none;
+    grid-area: header;
+    position: static;
+    justify-content: flex-end;
+    background: transparent;
   }
 
   .sidebar {
@@ -116,6 +152,8 @@ body {
 
   .main {
     grid-area: main;
+    min-height: 0;
+    overflow-y: auto;
   }
 
   .footer {
