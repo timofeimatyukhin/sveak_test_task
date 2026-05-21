@@ -12,10 +12,11 @@
 
 .card {
   min-width: 0;
-  min-height: 115px;
+  height: 115px;
   padding: 12px;
   border-radius: 8px;
   background: rgb(128 104 159 / 20%);
+  overflow: hidden;
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
@@ -28,9 +29,13 @@
 
 .card__text {
   margin: 0;
+  display: -webkit-box;
   overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
   font-size: 14px;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 @media (min-width: $tablet-min) {
@@ -49,7 +54,11 @@
   }
 
   .card {
-    min-height: 150px;
+    height: 150px;
+  }
+
+  .card__text {
+    -webkit-line-clamp: 5;
   }
 }
 
