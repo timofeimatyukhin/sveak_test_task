@@ -6,8 +6,6 @@
   grid-template-columns: repeat(2, minmax(115px, 150px));
   justify-content: center;
   gap: var(--content-gap);
-
-  @include hide-incomplete-row(2);
 }
 
 .card {
@@ -43,7 +41,13 @@
   overflow-wrap: anywhere;
 }
 
-@media (min-width: $tablet-min) {
+@media (max-width: $mobile-max) {
+  .cards {
+    @include hide-incomplete-row(2);
+  }
+}
+
+@media (min-width: $tablet-min) and (max-width: $tablet-max) {
   .cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 
@@ -51,7 +55,7 @@
   }
 }
 
-@media (min-width: $laptop-min) {
+@media (min-width: $laptop-min) and (max-width: ($desktop-min - 1px)) {
   .cards {
     grid-template-columns: repeat(4, minmax(0, 1fr));
 
