@@ -19,7 +19,8 @@
   background: var(--header-icon);
   transition:
     transform 0.2s ease,
-    opacity 0.2s ease;
+    opacity 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .burger:hover .burger__line {
@@ -51,6 +52,7 @@
   background: var(--sidebar-bg);
   overflow-y: auto;
   transform: translateX(-100%);
+  will-change: transform;
   transition: transform 0.25s ease;
 }
 
@@ -83,7 +85,8 @@
     transform 0.2s ease;
 }
 
-.menu__item:hover {
+.menu__item:hover,
+.menu__item:focus-visible {
   background: rgb(255 255 255 / 18%);
   transform: translateX(4px);
 }
@@ -140,7 +143,8 @@
     transform 0.2s ease;
 }
 
-.demo-controls__button:hover {
+.demo-controls__button:hover,
+.demo-controls__button:focus-visible {
   background: rgb(255 255 255 / 36%);
   transform: translateY(-2px);
 }

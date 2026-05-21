@@ -26,3 +26,19 @@ svg {
   display: block;
   max-width: 100%;
 }
+
+:focus-visible {
+  outline: 3px solid rgb(95 169 196 / 70%);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}

@@ -17,6 +17,7 @@
   border-radius: 8px;
   background: rgb(128 104 159 / 20%);
   overflow: hidden;
+  will-change: transform;
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
@@ -25,6 +26,10 @@
 .card:hover {
   background: rgb(128 104 159 / 28%);
   transform: translateY(-3px);
+}
+
+.card:active {
+  transform: translateY(-1px);
 }
 
 .card__text {
