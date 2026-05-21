@@ -10,6 +10,12 @@ $desktop-min: 1440px;
   --sidebar-width: 240px;
   --content-padding: 16px;
   --content-gap: 16px;
+
+  --header-bg: #8ed8f3;
+  --header-icon: #5fa9c4;
+  --sidebar-bg: #cfb0f6;
+  --sidebar-accent: #eda1f1;
+  --sidebar-text: #80689f;
 }
 
 @media (min-width: $tablet-min) {
